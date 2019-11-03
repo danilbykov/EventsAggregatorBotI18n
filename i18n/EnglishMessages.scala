@@ -5,232 +5,232 @@ import io.events.aggregator.telegram.BaseMessages
 trait EnglishMessages extends AbstractMessages with BaseMessages {
 
   override val noActiveSubscriptions =
-    "No active subscriptions. Use command <pre>/add</pre> to add subscriptions"
+    "Aktif aboneliğiniz bulunmamamkta. Abonelik eklemek için <pre>/add</pre> komutunu kullanın"
 
   override def successfullySubscribed(twitter: String, channel: Option[String]) =
     channel match {
       case Some(name) =>
-        s"Channel '${name}' is subscribed on $twitter successfully!"
+        s"'${name}' kanalı, $twitter aboneliğine dahil edildi!"
       case None =>
-        s"Successfully subscribed on $twitter!"
+        s"Başarıyla abone oldunuz: $twitter!"
     }
-  override def alreadySubscribed(twitter: String) = s"Account $twitter is already monitored"
+  override def alreadySubscribed(twitter: String) = s"$twitter hesabı zaten izleniyor"
   override val unknownError = "Unknown error occurred"
-  override def accountNotExist(twitter: String) = s"Account $twitter doesn't exist"
+  override def accountNotExist(twitter: String) = s"$twitter hesabı mevcut değil"
   override def tooManySubscriptions(max: Int) =
-    s"Too many active subscriptions. Only $max subscriptions per user is allowed."
+    s"Çok fazla sayıda aktif aboneliğiniz mevcut. Kullanıcı başına en fazla $max aboneliğe izin verilir."
 
-  override def successfullyUnsubscribed(twitter: String) = s"Successfully unsubscribed from $twitter!"
-  override val notSubscribed = "Can not find this subscription!"
+  override def successfullyUnsubscribed(twitter: String) = s"Başarıyla abonelikten çıktınız: $twitter!"
+  override val notSubscribed = "Böyle bir abonelik bulunmuyor!"
 
   override def chooseSource(channelName: Option[String]) =
-    header(channelName) + "Choose source:"
-  override val chooseSubscriptionForRemoval = "Choose subscription for removal:"
-  override val noSubscriptions = "No active subscriptions"
+    header(channelName) + "Kaynak seçin:"
+  override val chooseSubscriptionForRemoval = "Kaldırmak istediğiniz aboneliği seçin:"
+  override val noSubscriptions = "Aktif abonelik mevcut değil"
 
   override def greetMessage(username: String) =
-    s"Hello $username! $botName is started. Use command /add to subscribe on " +
-    "Twitter, Reddit, YouTube or RSS."
-  override val helpText = """/add - Subscribes on all new tweets from Twitter, Instagram account or RSS feed
-    |/addinstagram $account_name - Subscribes on all new photos from Instagram account
-    |/addreddit $account_name - Subscribes on updates of SubReddit
-    |/addrss $url - Subscribes on updates of RSS feed
-    |/addtwitch $channel_name - Subscribes on all videos from Twitch account
-    |/addtwitter $account_name - Subscribes on all new tweets from Twitter account
-    |/addyoutube $channel_name - Subscribes on all new videos from YouTube channel
-    |/list - Shows list of all subscriptions
-    |/help - Showes this help
-    |/remove - Removes subscription
-    |/settings - Customizes bot for your chat:
-    |  — Choose preferred language
-    |  — Choose preferred template for subscriptions
-    |  — Setup bot for your Telegram channels
-    |  — Configure wordfilter
-    |  — Restrict access to bot in group
-    |  — and so on""".stripMargin
-  override val addUsageText = """Invalid arguments. Usage: <pre>/add $URL</pre> where $URL is Twitter URL or Instagram URL. For example, use
-    |<pre>/add https://twitter.com/cristiano</pre> to monitor Twitter account or
-    |<pre>/add https://www.instagram.com/cristiano/</pre> to monitor Instagram account""".stripMargin
-  override val enterTwitter = "Enter Twitter account name or URL"
-  override val addTwitterUsageText = """Invalid arguments. Usage: <pre>/addtwitter $account_name</pre> For example, you may use one of following formats:
-    |<pre>/addtwitter cristiano</pre> or
+    s"Merhaba $username! $botName botunu başlattınız. /add komutunu kullanarak " +
+    "Twitter, Reddit, YouTube veya bir RSS'e abone olabilirsiniz."
+  override val helpText = """/add - Twitter'daki tüm yeni tweetlere, Instagram hesabına veya RSS'e abone olun
+    |/addinstagram $account_name - Instagram hesabındaki tüm yeni fotoğraflara abone olun
+    |/addreddit $account_name - Tüm SubReddit güncellemelerine abone olun
+    |/addrss $url - Bir RSS'e abone olun
+    |/addtwitch $channel_name - Twitch hesabının tüm videolarına abone olun
+    |/addtwitter $account_name - Twitter hesabındaki en yeni tweetleri takibe alın
+    |/addyoutube $channel_name - YouTube kanalındaki yeni videolara abone olun
+    |/list - Tüm aboneliklerin listesini gösterir
+    |/help - Bu yardım metnini gösterir
+    |/remove - Abonelik siler
+    |/settings - Botunuzu sohbetiniz için özelleştirir:
+    |  — Kullandığınız dili seçin
+    |  — Abonelikleriniz için istediğiniz şablonu seçin
+    |  — Botu Telegram kanallarınız için ayarlayın
+    |  — Kelime filtresi belirleyin
+    |  — Grubunuzdaki bot erişimini kısıtlayın
+    |  — ve fazlası""".stripMargin
+  override val addUsageText = """Geçersiz argüman. Kullanımı: <pre>/add $URL</pre> $URL Twitter URL veya Instagram URL olabilir. Örneğin,
+    |<pre>/add https://twitter.com/cristiano</pre> ile bir twitter hesabı izleyin veya
+    |<pre>/add https://www.instagram.com/cristiano/</pre> ile Instagram hesabına abone olun""".stripMargin
+  override val enterTwitter = "Twitter hesabının ismini ya da URL bağlantısını girin"
+  override val addTwitterUsageText = """Geçersiz argüman. Kullanımı: <pre>/addtwitter $account_name</pre> Örneğin, aşağıdaki biçimleri kullanabilirsiniz:
+    |<pre>/addtwitter cristiano</pre> ya da
     |<pre>/addtwitter https://twitter.com/cristiano</pre>""".stripMargin
-  override val enterInstagram = "Enter Instagram account name or URL"
-  override val addInstagramUsageText = """Invalid arguments. Usage: <pre>/addinstagram $account_name</pre> For example, you may use one of following formats:
-    |<pre>/addinstagram cristiano</pre> or
+  override val enterInstagram = "Instagram hesabının ismini ya da URL bağlantısını girin"
+  override val addInstagramUsageText = """Geçersiz argüman. Kullanımı: <pre>/addinstagram $account_name</pre> Örneğin, aşağıdaki biçimleri kullanabilirsiniz:
+    |<pre>/addinstagram cristiano</pre> ya da
     |<pre>/addinstagram https://www.instagram.com/cristiano/</pre>""".stripMargin
-  override val enterAtom = "Enter URL to RSS feed or URL to HTML page with RSS"
-  override val addAtomUsageText = """Invalid arguments. Usage: <pre>/addrss $account_name</pre> For example, you may use following command:
+  override val enterAtom = "RSS beslemesine URL veya RSS ile HTML sayfasına URL'yi girin"
+  override val addAtomUsageText = """Geçersiz argüman. Kullanımı: <pre>/addrss $account_name</pre> Örneğin, aşağıdaki biçimleri kullanabilirsiniz:
     |<pre>/addrss https://feedforall.com/sample.xml</pre>""".stripMargin
-  override val enterReddit = "Bot can monitor posts in SubReddit as well as posts of Reddit users. Enter Subreddit name or Reddit username or URL."
-  override val addRedditUsageText = """Invalid arguments. Usage: <pre>/addreddit $subreddit</pre> For example, you may use following commands:
-    |<pre>/addreddit cristianoronaldo</pre> or
-    |<pre>/addreddit https://www.reddit.com/r/cristianoronaldo/</pre> or
+  override val enterReddit = "Bot, SubReddit'teki yayınları ve Reddit kullanıcılarının yayınlarını izleyebilir. Subreddit adını, Reddit kullanıcı adını veya URL’sini girin."
+  override val addRedditUsageText = """Geçersiz argüman. Kullanımı: <pre>/addreddit $subreddit</pre> Örneğin, aşağıdaki biçimleri kullanabilirsiniz:
+    |<pre>/addreddit cristianoronaldo</pre> veya
+    |<pre>/addreddit https://www.reddit.com/r/cristianoronaldo/</pre> ya da
     |<pre>/addreddit https://www.reddit.com/user/jdegoes</pre>""".stripMargin
-  override val enterYouTubeText = "Enter text to search YouTube channels."
-  override val addYouTubeUsageText = """Invalid arguments. Usage: <pre>/addyoutube search_query</pre> For example, you may use following command:
+  override val enterYouTubeText = "YouTube kanallarını aramak için ismini girin."
+  override val addYouTubeUsageText = """Geçersiz argüman. Kullanımı: <pre>/addyoutube search_query</pre> Örneğin, aşağıdaki biçimleri kullanabilirsiniz:
     |<pre>/addyoutube Cristiano Ronaldo</pre>""".stripMargin
-  override val noYouTubeChannels = "No YouTube channels found for your query"
-  override val chooseYouTubeChannels = "Following channels were found for your query. Please choose channel for subscription:"
-  override val enterTwitchText = "Enter Twitch channel name or URL"
-  override val enterTwitchUsageText = """Invalid arguments. Usage: <pre>/addtwitch $channel_name</pre> For example, you may use following commands:
-    |<pre>/addtwitch GSL</pre> or
+  override val noYouTubeChannels = "Bu isimde hiç YouTube kanalı bulunamadı"
+  override val chooseYouTubeChannels = "Aramanız için aşağıdaki kanallar bulundu. Lütfen abone için bir kanal seçin:"
+  override val enterTwitchText = "Twitch kanalının ismini veya URL bağlantısını girin"
+  override val enterTwitchUsageText = """Geçersiz argüman. Kullanımı: <pre>/addtwitch $channel_name</pre> Örneğin, aşağıdaki biçimleri kullanabilirsiniz:
+    |<pre>/addtwitch GSL</pre> ya da
     |<pre>/addtwitch https://www.twitch.tv/gsl</pre>""".stripMargin
 
-  override val noLink = "No text found"
-  override val backToBotSettingsButton = "<< Back To Bot Settings"
+  override val noLink = "Sonuç bulunamadı"
+  override val backToBotSettingsButton = "<< Bot Ayarlarına Geri Dön"
 
   override def botSettings(channelName: Option[String]) =
-    header(channelName) + "Bot Settings:"
+    header(channelName) + "Bot Ayarları:"
 
-  override val onlyForAdmins = "Only admins are allowed to execute this command"
-  override val permissionsButton = "Permissions"
-  override val restrictButton = "Restrict"
-  override val disableRestrictionButton = "Disable restrictions"
-  override val unrestrictedMode = "All members of this group can add/remove subscriptions. Click button below to " +
-    "restrict these commands and require administrator permissions."
-  override val restrictedMode = "Only administrators can add/remove subscriptions. Click button below to " +
-    "provide access for all members of this group."
-  override val noPermissions = "Only Administrator users can execute this action!"
+  override val onlyForAdmins = "Bu komutu yalnızca yöneticilerin çalıştırmasına izin verilir"
+  override val permissionsButton = "İzinler"
+  override val restrictButton = "Kısıtla"
+  override val disableRestrictionButton = "Kısıtlamaları devredışı bırak"
+  override val unrestrictedMode = "Bu grubun tüm üyeleri abonelik ekleyebilir/silebilir. Bu komutları " +
+    "kısıtlayın veya yönetici izni belirleyin."
+  override val restrictedMode = "Yalnızca yöneticiler bir abonelik ekleyebilir/silebilir. Bu komutları " +
+    "grubun tüm üyelerinin gerçekleştirmesine izin vermek için butona tıkla."
+  override val noPermissions = "Bu işlemi yalnızca Yöneticiler yapabilir!"
 
-  override val wordFilter = "Wordfilter"
-  override val editWordfilterButton = "Edit Wordfilter"
-  override val removeWordfilterButton = "Remove Wordfilter"
+  override val wordFilter = "Kelime Filtresi"
+  override val editWordfilterButton = "Kelime Filtresini Düzenle"
+  override val removeWordfilterButton = "Kelime Filtresini Sil"
   override def noStopWords(channelName: Option[String]) =
     header(channelName) +
-      "Wordfilter is not set. Use Wordfilter to filter out posts which contain at least " +
-      "one word from Wordfilter."
+      "Kelime Filtresi belirlenmedi. İstemediğiz gönderilerin gelmesini engellemek için " +
+      "en az bir kelime belirlemelisiniz."
   override def stopWords(stopWords: Set[String], channelName: Option[String]) =
     header(channelName) +
-      "Wordfilter is used to filter out posts which contain at least " +
-      s"one word from Wordfilter.\n <b>Wordfilter: </b> ${stopWords.mkString(", ")}."
+      "Kelime filtresi en az bir kelime içeren gönderileri " +
+      s"filtrelemek için kullanılır.\n <b>Kelime Filtresi: </b> ${stopWords.mkString(", ")}."
   override val enterStopWords =
-    "Please enter space-separated list of words. No more than 250 characters is allowed."
-  override val tooLongStopList = "Your message exceeds 250 characters. No more than 250 characters is allowed."
+    "Lütfen boşlukla ayırarak bir kelime listesi girin. En fazla 250 karaktere izin verilir."
+  override val tooLongStopList = "Mesajınız 250 karakteri aşıyor. En fazla 250 karaktere izin verilir."
 
-  override val templatesButton = "Templates"
-  override val backToTemplatesButton = "<< Back To Templates"
-  override val activeButton = "Active"
-  override val activateButton = "Activate"
-  override val sendExampleButton = "Send Example"
-  override val sendImageButton = "Send Image"
-  override val sendVideoButton = "Send Video"
+  override val templatesButton = "Şablonlar"
+  override val backToTemplatesButton = "<< Şablonlara Geri Dön"
+  override val activeButton = "Aktif"
+  override val activateButton = "Aktif Et"
+  override val sendExampleButton = "Örnek Gönder"
+  override val sendImageButton = "Fotoğraf Gönder"
+  override val sendVideoButton = "Video Gönder"
 
   override def twitterTemplatesOverview(channelName: Option[String]) =
-    header(channelName) + """There are four available templates:
-      |1. Decorated link with official Tweet preview. This is used by default.
-      |2. Raw link with official Tweet preview. Raw links look "ugly" but Telegram client doesn't ask confirmation when you click on it. So this saves one click.
-      |3. If Tweet is long then text can be truncated in official preview. This template always shows full text.
-      |4. The same template as third template. But link to source Tweet is decorated by text 'Open Tweet'.""".stripMargin
+    header(channelName) + """Dört adet şablon mevcuttur:
+      |1. Resmi Tweet önizlemesi eklenmiş bağlantı. Bu, varsayılan olarak kullanılır.
+      |2. Resmi Tweet önizlemeli link. Ham bağlantılar "çirkin" görünür, ancak Telegram istemcisi tıkladığınızda onay istemiyor. Yani bu tek bir tıklamayla tasarruf sağlar.
+      |3. Tweet uzunsa, resmi önizlemede metin kesilebilir. Bu şablon her zaman tam metni gösterir.
+      |4. Üçüncü şablonla aynı şablon. Ancak kaynak Tweet bağlantısı 'Tweet'i Aç' metni ile ulaşıma kolaylık sağlar.""".stripMargin
   override def instagramTemplatesOverview(channelName: Option[String]) =
-    header(channelName) + """There are four available templates:
-      |1. Decorated link with official Instagram post preview. This is used by default.
-      |2. Raw link with official Instagram post preview. Raw links look "ugly" but Telegram client doesn't ask confirmation when you click on it. So this saves one click.
-      |3. If Instagram post is long then text can be truncated in official preview. This template always shows full text. Works well for Single photo, video but Instagram posts with multiple images are not supported. Only first image is rendeded.
-      |4. The same template as third template. But link to source Instagram post is decorated by text 'Open in Instagram'.""".stripMargin
+    header(channelName) + """Dört adet şablon mevcuttur:
+      |1. Resmi Instagram yayın önizlemesine bağlantı ekler. Bu, varsayılan olarak kullanılır.
+      |2. Resmi Instagram yayını önizlemesi ile ham link. Ham bağlantılar "çirkin" görünür, ancak Telegram istemcisi tıkladığınızda onay istemiyor. Yani bu tek bir tıklamayla tasarruf sağlar.
+      |3. Instagram gönderimi uzunsa, metin resmi önizlemede kesilebilir. Bu şablon her zaman tam metni gösterir. Tek fotoğraf, video için iyi çalışır, ancak birden fazla görüntü içeren Instagram gönderileri desteklenmez. Sadece ilk görüntü gösterilir.
+      |4. Üçüncü şablonla aynı şablon. Ancak Instagram gönderisine olan bağlantı 'Instagram'da Aç' metni ile ulaşıma kolaylık sağlar""".stripMargin
   override def redditTemplatesOverview(channelName: Option[String]) =
-    header(channelName) + """There are three available templates:
-      |1. Decorated link with official Reddit post preview. This is used by default.
-      |2. Raw link with official Reddit post preview. Raw links look "ugly" but Telegram client doesn't ask confirmation when you click on it. So this saves one click.
-      |3. Decorated link with Instant View button. Please note that Instant Views are not supported by some Telegram clients (for example, in browser) and Instant View doesn't work if post is restricted for 18+ community.""".stripMargin
+    header(channelName) + """Üç adet şablon mevcuttur:
+      |1. Resmi Reddit yayın önizlemesine bir bağlantı ekler. Bu, varsayılan olarak kullanılır.
+      |2. Resmi Reddit yayın önizlemesi ile ham bağlantı. Ham bağlantılar "çirkin" görünür, ancak Telegram istemcisi tıkladığınızda onay istemiyor. Yani bu tek bir tıklamayla tasarruf sağlar.
+      |3. Anlık Görünüm butonu eklenmiş bağlantı. Anlık Görünümlerin bazı Telegram istemcileri (örneğin, tarayıcıda) tarafından desteklenmediğini ve gönderinin +18 topluluk için kısıtlanması durumunda Anında Görünüm'ün çalışmadığını lütfen unutmayın.""".stripMargin
   override def youtubeTemplatesOverview(channelName: Option[String]) =
-    header(channelName) + """There are two available templates:
-      |1. Decorated link with official YouTube post preview. This is used by default.
-      |2. Raw link with official YouTube post preview. Raw links look "ugly" but Telegram client doesn't ask confirmation when you click on it. So this saves one click.""".stripMargin
+    header(channelName) + """İki adet şablon mevcuttur:
+      |1. Resmi YouTube yayın önizlemesine bir bağlantı ekler. Bu, varsayılan olarak kullanılır.
+      |2. Resmi YouTube yayını önizlemeli bağlantı. Ham bağlantılar "çirkin" görünür, ancak Telegram istemcisi tıkladığınızda onay istemiyor. Yani bu tek bir tıklamayla tasarruf sağlar.""".stripMargin
 
   override def retweetedByWithLink(url: String, author: String): String =
-    s"""<a href="$url">Retweeted</a> by <b>$author</b>"""
+    s"""<a href="$url">Retweetlendi</a> by <b>$author</b>"""
   override def retweetedBy(author: String): String =
-    s"""Retweeted by <b>$author</b>"""
-  override val openTweet = "Open Tweet"
-  override val slidesNote = "(*) This post contains <b>multiple</b> photos. Click link to review others."
-  override val openInInstagram = "Open in Instagram"
-  override val openInReddit = "Open in Reddit"
-  override val commentInSubreddit = "Comment in Subreddit"
+    s"""Retweetleyen <b>$author</b>"""
+  override val openTweet = "Tweet'i Aç"
+  override val slidesNote = "(*) Bu yayın <b>birden çok</b> fotoğraf içeriyor. Diğerlerini incelemek için bağlantıyı tıklayın."
+  override val openInInstagram = "Instagram'da Aç"
+  override val openInReddit = "Reddit'te Aç"
+  override val commentInSubreddit = "Subreddit'te Yorum Yapın"
   override def videoScheduledOnYouTube(author: String, url: String) =
-    s"""User <b>$author</b> scheduled a <a href="$url">new video</a>"""
-  override val readMore = "Read more..."
+    s"""Kullanıcı <b>$author</b> <a href="$url">yeni video</a> zamanladı"""
+  override val readMore = "Daha Fazla Oku..."
   override def twitchVideo(user: String, url: String, directUrl: String) =
     s"""$user (Twitch Video)
-      |Link to video: $url
-      |Direct link to video: $directUrl""".stripMargin
+      |Video linki: $url
+      |Videoya direkt link: $directUrl""".stripMargin
   override def twitchStream(user: String, url: String, directUrl: String, chatUrl: String) =
     s"""$user (Twitch Stream)
-      |Link to stream: $url
-      |Direct link to stream: $directUrl
-      |Link to chat: $chatUrl""".stripMargin
+      |Yayın linki: $url
+      |Yayına direkt link: $directUrl
+      |Sohbet linki: $chatUrl""".stripMargin
 
-  override val forwardRetweetsButton = "Forward Retweets?"
-  override val forwardRetweetsButton2 = "Forward Retweets"
-  override val omitRetweetsButton = "Omit Retweets"
+  override val forwardRetweetsButton = "Retweetler İletilsin Mi?"
+  override val forwardRetweetsButton2 = "Retweet İletimleri"
+  override val omitRetweetsButton = "Retweetleri Çıkar"
   override def forwardRetweetsStateOverview(onlyTweets: Boolean, channelName: Option[String]) =
     if (onlyTweets) {
       header(channelName) +
-        "All Retweets are filtered out. Only Tweets are forwarded in Telegram. Click button below to send all " +
-        "posts from Twitter including Tweets and Retweets. This setting doesn't affect on another services: " +
-        "Instagram, Reddit, YouTube and so on."
+        "Tüm Retweetler filtrelendi. Telegram'ınıza yalnızca Tweetler iletilecek. Tekrar iletileri açmak " +
+        "için aşağıdaki butona tıklayın. Bu ayar diğer hizmetleri etkilemez: " +
+        "Instagram, Reddit, YouTube ve diğerleri.."
     } else {
       header(channelName) +
-        "All Twitter posts (including Tweets and Retweets) are forwarded in Telegram. Click button below " +
-        "to filter out Retweets and send only Tweets. This setting doesn't affect on another services: " +
-        "Instagram, Reddit, YouTube and so on."
+        "Tüm Twitter gönderileri (Tweetler ve Retweetler) Telegram'ınıza iletilecek. İletileri kapatmak için " +
+        "aşağıdaki butona tıklayınız. Bu ayar diğer hizmetleri etkilemez: " +
+        "Instagram, Reddit, YouTube ve diğerleri.."
     }
 
-  override val receiveNewFeatureButton = "Receive New Feature Notifications?"
-  override val turnOnNewFeatureButton = "Turn on New Feature Notifications"
-  override val turnOffNewFeatureButton = "Turn off New Feature Notifications"
+  override val receiveNewFeatureButton = "Yeniliklerin Bildirimleri Almak İster Misin?"
+  override val turnOnNewFeatureButton = "Yeniliklerin Bildirimlerini Al"
+  override val turnOffNewFeatureButton = "Yeniliklerin Bildirimlerini Alma"
   override def sendFeaturesNotifications(send: Boolean, channelName: Option[String]) =
     if (send) {
-      header(channelName) + s"Notifications about new features in $botName are enabled. Turn off these notifications using button below."
+      header(channelName) + s"$botName içerisinde gerçekleşen yeniliklerin bildirimi etkinleştirildi. Aşağıdaki butonu kullanarak tekrar kapatabilirsin."
     } else {
-      header(channelName) + s"Notifications about new features in $botName are disabled. Turn on these notifications " +
-      """using button below. Alternatively you can follow this <a href="https://twitter.com/EventsAggregat1">Twitter account</a>""" +
-      " to check for last enhancements."
+      header(channelName) + s"$botName içerisinde gerçekleşen yeniliklerin bildirimi devredışı bırakıldı. Aşağıdaki butonu kullanarak tekrar açabilirsin." +
+      """Alternatif olarak buraya bakabilirsin <a href="https://twitter.com/EventsAggregat1">Twitter Hesabımız,</a>""" +
+      " Yenilikleri beklemede kalın."
     }
 
-  override val bindWithChannelButton = "Bind With Telegram Channel"
-  override val addNewChannelButton = "Add New Channel"
-  override val unbindChannelButton = "Unbind channel"
-  override val removeButton = "Remove"
-  override val noChannelsBound = s"No channels bound. Use button below to connect $botName with your channel."
-  override val notBoundChannels = "Click button below to bind channel with this chat and manage subscriptions in channel"
+  override val bindWithChannelButton = "Telegram Kanalı Bağlayın"
+  override val addNewChannelButton = "Yeni Kanal Ekle"
+  override val unbindChannelButton = "Kanal Bağlantısını Kaldırın"
+  override val removeButton = "Kaldır"
+  override val noChannelsBound = s"Hiçbir kanal bağlı değil. Butonu kullanarak $botName botunu kanalınıza bağlayın."
+  override val notBoundChannels = "Kanalı bu sohbete bağlamak ve kanaldaki abonelikleri yönetmek için aşağıdaki düğmeye tıklayın"
   override def channelBound(channelName: String) =
-    s"Channel <b>${channelName}</b> is bound with this chat. You can unbind channel to use chat in regular mode " +
-    "or bind with another channel to update subscriptions."
-  override val addingChannel = s"Enter your channel name. Please make sure that $botName is already added as " +
-    "administrator and you are creator of this channel."
+    s"Kanal <b>${channelName}</b> bu bota bağlı. Normal modda kullanmal in kanal bağlantısını kaldırın " +
+    "ya da kanalınız için yeni abonelikler belirleyin."
+  override val addingChannel = s"Kanalınızın ismini girin. Lütfen, $botName botunun kanalınızda ekli," +
+    "kurucu veya yönetici yetkilerinin olduğundan emin olun."
   override def channelNotFound(channelName: String) =
-    s"Channel '${channelName}' not found."
-  override val notCreator = "Only creator of channel can bind channel with chat."
-  override val notAdmin = s"Bot $botName must be added in your channel as administrator."
+    s"'${channelName}' kanalı bulunamadı."
+  override val notCreator = "Yalnızca kanalın kurucusu botu kanalla bağlayabilir."
+  override val notAdmin = s"$botName botunun kanalınızda ekli ve yönetici olduğundan emin olun."
   override def channelExists(channelName: String) =
-    s"Channel '${channelName}' is already bound with this chat."
-  override val channelDoesNotExist = "Channel is not defined"
+    s"'${channelName}' kanalı zaten bu bota bağlı."
+  override val channelDoesNotExist = "Kanal tanımlanamadı"
   override def channelDefined(channelName: String) =
-    s"Channel '${channelName}' is added successfully. Select this channel in menu to manage subscriptions."
+    s"'${channelName}' kanalı başarıyla eklendi. Abonelikleri yönetmek için menüden bu kanalı seçin."
   override val channelDoesNotAlreadyExist =
-    "This channel does not already exist. Update list of channels."
+    "Bu kanal mevcut değil. Kanal listenizi güncelleyin."
 
-  override val instagramBroken = "Instagram prevents getting data from their pages. Monitoring Instagram " +
-    "accounts is disabled."
+  override val instagramBroken = "Instagram sayfalarından veri alınmasını önler. " +
+    " Instagram hesaplarını izleme devre dışı bırakıldı."
 
-  override val resumeButton = "Resume"
-  override val deleteButton = "Delete"
-  override val inactiveUser = "You were inactive during long time and all subscriptions are paused. " +
-    "Would you like resume these subscriptions?"
-  override val monitoringResumed = "Monitoring of all your subscriptions are resumed!"
-  override val monitoringCancelled = "All your subscriptions are deleted."
+  override val resumeButton = "Devam Et"
+  override val deleteButton = "Sil"
+  override val inactiveUser = "Uzun zamandır aktif olmadığınızdan tüm abonelikler duraklatılıyor. " +
+    "Bu abonelikleri devam ettirmek ister misiniz?"
+  override val monitoringResumed = "Tüm aboneliklerinizi takip etmeye devam edin!"
+  override val monitoringCancelled = "Tüm abonelikleriniz silindi."
   override def tooLongInactive(daysLeft: Int) =
-    "Please confirm that you still use this bot. You can do this by entering any command " +
-    s"(for example, /help or /list). Otherwise your subscriptions will be paused in $daysLeft days."
+    "Lütfen hala bu botu kullandığınızı onaylayın. Bunu herhangi bir komut göndererek yapabilirsiniz " +
+    s"(örneğin, /help veya /list). Aksi taktirde bütün abonelikleriniz $daysLeft gün sonra durdurulacaktır."
   override val monitoringPaused =
-    "Monitoring of your subscriptions was paused because you were inactive during long time. You " +
-    "can restart monitoring at any time using button 'Resume' or delete subscriptions using " +
-    "button 'Delete'."
+    "Aboneliklerinizi izlemek duraklatıldı, çünkü uzun zamandır aktif değilsiniz. " +
+    "'Devam Et' butonunu kullanarak izlemeyi istediğiniz zaman başlatabilir  veya 'Sil' butonunu kullanarak " +
+    "aboneliklerizi silebilirsiniz."
 
-  override val language = "Language"
+  override val language = "Dil"
   override def chooseLanguage(channelName: Option[String]) =
-    header(channelName) + "Choose language:"
+    header(channelName) + "Dilinizi Seçin:"
 }
 
 object EnglishMessages extends EnglishMessages
