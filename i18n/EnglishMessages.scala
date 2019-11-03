@@ -89,7 +89,7 @@ trait EnglishMessages extends AbstractMessages with BaseMessages {
   override val disableRestrictionButton = "Kısıtlamaları devredışı bırak"
   override val unrestrictedMode = "Bu grubun tüm üyeleri abonelik ekleyebilir/silebilir. Bu komutları " +
     "kısıtlayın veya yönetici izni belirleyin."
-  override val restrictedMode = "Yalnızca yöneticiler bir abonelik ekleyebilir/silebilir. Bu komutları " 
+  override val restrictedMode = "Yalnızca yöneticiler bir abonelik ekleyebilir/silebilir. Bu komutları " +
     "grubun tüm üyelerinin gerçekleştirmesine izin vermek için butona tıkla."
   override val noPermissions = "Bu işlemi yalnızca Yöneticiler yapabilir!"
 
