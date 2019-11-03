@@ -1,8 +1,6 @@
 package io.events.aggregator.telegram.i18n
 
-import io.events.aggregator.telegram.BaseMessages
-
-trait EnglishMessages extends AbstractMessages with BaseMessages {
+object TurkishMessages extends EnglishMessages {
 
   override val noActiveSubscriptions =
     "Aktif aboneliğiniz bulunmamamkta. Abonelik eklemek için <pre>/add</pre> komutunu kullanın"
@@ -232,5 +230,3 @@ trait EnglishMessages extends AbstractMessages with BaseMessages {
   override def chooseLanguage(channelName: Option[String]) =
     header(channelName) + "Dilinizi Seçin:"
 }
-
-object EnglishMessages extends EnglishMessages
