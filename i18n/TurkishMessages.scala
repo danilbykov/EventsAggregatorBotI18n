@@ -1,5 +1,8 @@
 package io.events.aggregator.telegram.i18n
 
+/**
+ * Created by @HolyTotem.
+ */
 object TurkishMessages extends EnglishMessages {
 
   override val noActiveSubscriptions =
