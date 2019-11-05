@@ -2,7 +2,7 @@ package io.events.aggregator.telegram.i18n
 
 import io.events.aggregator.telegram.BaseMessages
 
-trait BrazilianPortugueseMessages extends AbstractMessages with BaseMessages {
+trait PortugueseMessages extends AbstractMessages with BaseMessages {
 
   override val noActiveSubscriptions =
     "Nenhuma inscrição ativa. Use o comando <pre>/add</pre> para adicionar inscrições"
@@ -31,18 +31,18 @@ trait BrazilianPortugueseMessages extends AbstractMessages with BaseMessages {
   override def greetMessage(username: String) =
     s"Olá $username! $botName foi iniciado. Use o comando /add para inscrever-se nas fontes: " +
     "Twitter, Reddit, YouTube ou RSS."
-  override val helpText = """/add - Inscreva-se em todos os novos tweets fo Twitter, contas do Instagram ou RSS feed
+  override val helpText = """/add - Inscreva-se em todos os novos tweets do Twitter, contas do Instagram ou RSS feed
     |/addinstagram $account_name - Inscreva-se em todas as novas fotos de contas do Instagram
     |/addreddit $account_name - Inscreva-se em atualizações do SubReddit
     |/addrss $url - Inscreva-se em atualizações de RSS feed's
-    |/addtwitch $channel_name - Inscreva-se em todos os novos vídes de contas Twitch
+    |/addtwitch $channel_name - Inscreva-se em todos os novos vídeos de contas Twitch
     |/addtwitter $account_name - Inscreva-se em todos os novos tweets de contas do Twitter
     |/addyoutube $channel_name - Inscreva-se em todos os novos vídeos de canais do YouTube
     |/list - Liste todas as inscrições
     |/help - Mostra esta ajuda
     |/remove - Remove uma inscrição
     |/settings - Personalize o bot para seu chat:
-    |  — Escolha sua linguagem preferida
+    |  — Escolha seu idioma preferido
     |  — Escolha o modelo preferido para as inscrições
     |  — Configure o bot para canais do Telegram
     |  — Configure o Filtro de Palavras
@@ -71,7 +71,7 @@ trait BrazilianPortugueseMessages extends AbstractMessages with BaseMessages {
   override val addYouTubeUsageText = """Argumentos inválidos. Use: <pre>/addyoutube search_query</pre> Por exemplo, você pode usar o seguinte comando:
     |<pre>/addyoutube Cristiano Ronaldo</pre>""".stripMargin
   override val noYouTubeChannels = "Nenhum canal do YouTube foi encontrado!"
-  override val chooseYouTubeChannels = "Os seguintes canais foram encontrados. Por favor, escolha o canal para inscriver-se:"
+  override val chooseYouTubeChannels = "Os seguintes canais foram encontrados. Por favor, escolha o canal para inscrever-se:"
   override val enterTwitchText = "Insira um nome de canal da Twitch ou URL"
   override val enterTwitchUsageText = """Argumentos inválidos. Use: <pre>/addtwitch $channel_name</pre> Por exemplo, você pode usar os seguintes comandos:
     |<pre>/addtwitch GSL</pre> ou
@@ -93,16 +93,16 @@ trait BrazilianPortugueseMessages extends AbstractMessages with BaseMessages {
     "conceder acesso à todos os membros deste grupo."
   override val noPermissions = "Apenas administradores podem executar esta ação!"
 
-  override val wordFilter = "Filtro de palavras"
-  override val editWordfilterButton = "Editar Filtro de palavras"
-  override val removeWordfilterButton = "Remover Filtro de palavras"
+  override val wordFilter = "Filtro de Palavras"
+  override val editWordfilterButton = "Editar Filtro de Palavras"
+  override val removeWordfilterButton = "Remover Filtro de Palavras"
   override def noStopWords(channelName: Option[String]) =
     header(channelName) +
       "Filtro de palavras não está configurado. Use o Filtro de palavras para filtrar postagem que tenha pelo menos " +
       "uma palavra do Filtro de Palavras."
   override def stopWords(stopWords: Set[String], channelName: Option[String]) =
     header(channelName) +
-      "O Filtro de Palavras está sendo utilizado para filtras postagens que contenham " +
+      "O Filtro de Palavras está sendo utilizado para filtrar postagens que contenham " +
       s"uma palavra do Filtro de Palavras.\n <b>Filtro de Palavras: </b> ${stopWords.mkString(", ")}."
   override val enterStopWords =
     "Por favor, digite a lista de palavras separadas por espaço. Não é permitido mais que 250 caracteres."
@@ -127,14 +127,14 @@ trait BrazilianPortugueseMessages extends AbstractMessages with BaseMessages {
       |1. Link decorado com pré-visualização oficial do Instagram. Isto é usado por padrão.
       |2. Link bruto com pré-visualização oficial do Instagram. Os links brutos parecem "feios", mas o Telegram não pede confirmação quando você clica. Então isto economiza um clique.
       |3. Se a postagem do Instagram for muito longa, o texto pode ser cortado na pré-visualização oficial. Este modelo sempre mostra o texto completo. Funciona bem para uma foto única, vídeo, mas postagens com múltiplas imagens não são suportadas. Apenas a primeira imagem será mostrada.
-      |4. O mesmo que o terceiro modelo. Mas o link para a postagem do Instagram post é mostrado como 'Abrir no Instagram'.""".stripMargin
+      |4. O mesmo que o terceiro modelo. Mas o link para a postagem do Instagram é mostrado como 'Abrir no Instagram'.""".stripMargin
   override def redditTemplatesOverview(channelName: Option[String]) =
     header(channelName) + """Existem três modelos disponíveis:
       |1. Link decorado com pré-visualização oficial do Reddit. Isto é usado por padrão.
       |2. Link bruto com pré-visualização oficial do Reddit. Os links brutos parecem "feios", mas o Telegram não pede confirmação quando você clica. Então isto economiza um clique.
       |3. Link decorado com botão de Visualização Instantânea. Observe que a Visualização Instantânea não é suportada por alguns clientes do Telegram (por exemplo, no navegador) e também não funciona se a postagem for restrito para 18+.""".stripMargin
   override def youtubeTemplatesOverview(channelName: Option[String]) =
-    header(channelName) + """There are two available templates:
+    header(channelName) + """Existem dois modelos disponíveis:
       |1. Link decorado com pré-visualização oficial do YouTube. Isto é usado por padrão.
       |2. Link bruto com pré-visualização oficial do Youtube. Os links brutos parecem "feios", mas o Telegram não pede confirmação quando você clica. Então isto economiza um clique.""".stripMargin
 
@@ -143,7 +143,7 @@ trait BrazilianPortugueseMessages extends AbstractMessages with BaseMessages {
   override def retweetedBy(author: String): String =
     s"""Retweetado por <b>$author</b>"""
   override val openTweet = "Abrir Tweet"
-  override val slidesNote = "(*) Esse post possuí <b>múltiplas</b> fotos. Clique no link para ver as outras."
+  override val slidesNote = "(*) Esse post possui <b>múltiplas</b> fotos. Clique no link para ver as outras."
   override val openInInstagram = "Abrir no Instagram"
   override val openInReddit = "Abrir no Reddit"
   override val commentInSubreddit = "Comentar no Subreddit"
@@ -167,12 +167,12 @@ trait BrazilianPortugueseMessages extends AbstractMessages with BaseMessages {
     if (onlyTweets) {
       header(channelName) +
         "Todos os Retweets estão filtrados. Apenas Tweets serão encaminhados no Telegram. Clique no botão abaixo para enviar todas as " +
-        "postagem do Twitter incluíndo Tweets and Retweets. Essa configuração não afeta os outros serviços: " +
+        "postagens do Twitter incluíndo Tweets and Retweets. Essa configuração não afeta os outros serviços: " +
         "Instagram, Reddit, YouTube, etc."
     } else {
       header(channelName) +
         "Todas as postagens do Twitter (incluindo Tweets e Retweets) são encaminhados no Telegram. Clique no botão abaixo " +
-        "para filtrar Retweets and enviar somente Tweets. Essa configuração não afeta os outros serviços:: " +
+        "para filtrar Retweets e enviar somente Tweets. Essa configuração não afeta os outros serviços: " +
         "Instagram, Reddit, YouTube, etc."
     }
 
@@ -224,7 +224,7 @@ trait BrazilianPortugueseMessages extends AbstractMessages with BaseMessages {
     "Por favor, confirme que você ainda usa este bot. Você pode fazer isso enviando qualquer comando " +
     s"(por exemplo, /help ou /list). Caso não confirme, suas inscrições serão pausadas em $daysLeft dias."
   override val monitoringPaused =
-    "O Monitoramente de suas inscrições foram pausadas porque você ficou muito tempo inativo. Você " +
+    "O Monitoramento de suas inscrições foram pausadas porque você ficou muito tempo inativo. Você " +
     "pode retomar o monitoramento a qualquer momento utilizando o botao 'Retomar' ou exclua as inscrições utilizando o " +
     "botão 'Excluir'."
 
@@ -233,4 +233,4 @@ trait BrazilianPortugueseMessages extends AbstractMessages with BaseMessages {
     header(channelName) + "Escolha o idioma:"
 }
 
-object BrazilianPortugueseMessages extends BrazilianPortugueseMessages
+object PortugueseMessages extends PortugueseMessages
