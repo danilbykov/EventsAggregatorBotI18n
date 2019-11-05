@@ -98,9 +98,8 @@ trait SpanishMessages extends AbstractMessages with BaseMessages {
   override val removeWordfilterButton = "Quitar Filtros"
   override def noStopWords(channelName: Option[String]) =
     header(channelName) +
-      "El Filtro de Palabras no está configurado. Use el Filtro de Palabras
-      Use el Filtro de Palabras para filtrar publicaciones que contienen por lo menos " +
-      "una palabra del Filtro de Palabras."
+      "El Filtro de Palabras no está configurado. Use el Filtro de Palabras " +
+      "para filtrar publicaciones que contienen por lo menos una palabra del Filtro de Palabras."
   override def stopWords(stopWords: Set[String], channelName: Option[String]) =
     header(channelName) +
       "El Filtro de Palabras se usa para filtrar publicaciones que contengan al menos " +
