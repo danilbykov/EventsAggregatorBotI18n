@@ -39,7 +39,7 @@ trait EnglishMessages extends AbstractMessages with BaseMessages {
     |/addtwitter $account_name - Subscribes on all new tweets from Twitter account
     |/addyoutube $channel_name - Subscribes on all new videos from YouTube channel
     |/list - Shows list of all subscriptions
-    |/help - Showes this help
+    |/help - Shows this help
     |/remove - Removes subscription
     |/settings - Customizes bot for your chat:
     |  — Choose preferred language
