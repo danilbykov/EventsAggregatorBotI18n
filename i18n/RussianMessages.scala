@@ -151,11 +151,11 @@ object RussianMessages extends EnglishMessages {
     s"""Пользователь <b>$author</b> запланировал <a href="$url">новое видео</a>"""
   override val readMore = "Читать больше..."
   override def twitchVideo(user: String, url: String, directUrl: String) =
-    s"""$user (Twitch Видео)
+    s"""<b>$user</b> (Twitch Видео)
       |Ссылка на видео: $url
       |Прямая ссылка на видео: $directUrl""".stripMargin
   override def twitchStream(user: String, url: String, directUrl: String, chatUrl: String) =
-    s"""$user (Twitch Стрим)
+    s"""<b>$user</b> (Twitch Стрим)
       |Ссылка на стрим: $url
       |Прямая ссылка на стрим: $directUrl
       |Ссылка на чат: $chatUrl""".stripMargin

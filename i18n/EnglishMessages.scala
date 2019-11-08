@@ -151,11 +151,11 @@ trait EnglishMessages extends AbstractMessages with BaseMessages {
     s"""User <b>$author</b> scheduled a <a href="$url">new video</a>"""
   override val readMore = "Read more..."
   override def twitchVideo(user: String, url: String, directUrl: String) =
-    s"""$user (Twitch Video)
+    s"""<b>$user</b> (Twitch Video)
       |Link to video: $url
       |Direct link to video: $directUrl""".stripMargin
   override def twitchStream(user: String, url: String, directUrl: String, chatUrl: String) =
-    s"""$user (Twitch Stream)
+    s"""<b>$user</b> (Twitch Stream)
       |Link to stream: $url
       |Direct link to stream: $directUrl
       |Link to chat: $chatUrl""".stripMargin

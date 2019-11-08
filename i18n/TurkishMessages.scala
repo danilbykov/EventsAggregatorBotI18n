@@ -152,11 +152,11 @@ object TurkishMessages extends EnglishMessages {
     s"""Kullanıcı <b>$author</b> <a href="$url">yeni video</a> zamanladı"""
   override val readMore = "Daha Fazla Oku..."
   override def twitchVideo(user: String, url: String, directUrl: String) =
-    s"""$user (Twitch Video)
+    s"""<b>$user</b> (Twitch Video)
       |Video linki: $url
       |Videoya direkt link: $directUrl""".stripMargin
   override def twitchStream(user: String, url: String, directUrl: String, chatUrl: String) =
-    s"""$user (Twitch Stream)
+    s"""<b>$user</b> (Twitch Stream)
       |Yayın linki: $url
       |Yayına direkt link: $directUrl
       |Sohbet linki: $chatUrl""".stripMargin

@@ -151,11 +151,11 @@ trait SpanishMessages extends AbstractMessages with BaseMessages {
     s"""El Usuario <b>$author</b> programó un <a href="$url">nuevo video</a>"""
   override val readMore = "Leer más..."
   override def twitchVideo(user: String, url: String, directUrl: String) =
-    s"""$user (Twitch Video)
+    s"""<b>$user</b> (Twitch Video)
       |Link al video: $url
       |Link directo al video: $directUrl""".stripMargin
   override def twitchStream(user: String, url: String, directUrl: String, chatUrl: String) =
-    s"""$user (Twitch Stream)
+    s"""<b>$user</b> (Twitch Stream)
       |Link al stream: $url
       |Link directo al stream: $directUrl
       |Link al chat: $chatUrl""".stripMargin
