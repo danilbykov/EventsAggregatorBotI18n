@@ -1,7 +1,8 @@
 package io.events.aggregator.telegram.i18n
 
-import io.events.aggregator.telegram.BaseMessages
-
+/**
+ * Created by @Amroslayer
+ */
 trait EnglishMessages extends AbstractMessages with BaseMessages {
 
   override val noActiveSubscriptions =
