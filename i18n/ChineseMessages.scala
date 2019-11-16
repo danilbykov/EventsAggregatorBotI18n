@@ -1,6 +1,6 @@
 package io.events.aggregator.telegram.i18n
 
-trait EnglishMessages extends AbstractMessages with BaseMessages {
+object ChineseMessages extends EnglishMessages {
 
   override val noActiveSubscriptions =
     "当前无订阅。使用命令 <pre>/add</pre> 来添加订阅"
@@ -64,7 +64,7 @@ trait EnglishMessages extends AbstractMessages with BaseMessages {
   override val addRedditUsageText = """无效的参数。 用法: <pre>/addreddit $subreddit</pre> 例如, 你可以使用下面的一个模板:
     |<pre>/addreddit cristianoronaldo</pre> 或
     |<pre>/addreddit https://www.reddit.com/r/cristianoronaldo/</pre> 或
-    |<pre>/addreddit https://www.reddit.com/user/jdegoes</pre>""".sctripMargin
+    |<pre>/addreddit https://www.reddit.com/user/jdegoes</pre>""".stripMargin
   override val enterYouTubeText = "输入 YouTube 频道名"
   override val addYouTubeUsageText = """无效的参数。 用法: <pre>/addyoutube search_query</pre> 例如, 你可以使用下面的一个模板:
     |<pre>/addyoutube Cristiano Ronaldo</pre>""".stripMargin
@@ -179,9 +179,9 @@ trait EnglishMessages extends AbstractMessages with BaseMessages {
   override val turnOffNewFeatureButton = "关闭新功能提醒"
   override def sendFeaturesNotifications(send: Boolean, channelName: Option[String]) =
     if (send) {
-      header(channelName) + s" $botName新功能提醒已开启. 单击下方按钮来关闭这些提醒"
+      header(channelName) + s"$botName 新功能提醒已开启. 单击下方按钮来关闭这些提醒"
     } else {
-      header(channelName) + s"$botName新功能提醒已关闭. 单击下方按钮来打开这些提醒 " +
+      header(channelName) + s"$botName 新功能提醒已关闭. 单击下方按钮来打开这些提醒 " +
       """ 或者你可以关注这个 <a href="https://twitter.com/EventsAggregat1">Twitter account</a>""" +
       " 来查看新功能"
     }
@@ -218,7 +218,7 @@ trait EnglishMessages extends AbstractMessages with BaseMessages {
   override val monitoringCancelled = "你所有的订阅被删除."
   override def tooLongInactive(daysLeft: Int) =
     "请输入任何命令以确认你仍在使用这个bot " +
-    s"(例如, /help 或 /list). 否则你的订阅将在$daysLeft天后被暂停."
+    s"(例如, /help 或 /list). 否则你的订阅将在$daysLeft 天后被暂停."
   override val monitoringPaused =
     "你所有的订阅已被暂停因为你已经离线太久." +
     "你可以单击'恢复'来恢复它们或者单击‘删除’来删除它们 " 
@@ -226,5 +226,3 @@ trait EnglishMessages extends AbstractMessages with BaseMessages {
   override def chooseLanguage(channelName: Option[String]) =
     header(channelName) + "选择语言:"
 }
-
-object EnglishMessages extends EnglishMessages
