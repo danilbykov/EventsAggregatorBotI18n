@@ -198,8 +198,8 @@ object GermanMessages extends EnglishMessages {
   override def channelBound(channelName: String) =
     s"Der Kanal <b>${channelName}</b> ist mit diesem Chat erfolgreich gebunden. Sie können die Bindung des Kanals aufheben, um den Chat im regulären Modus zu verwenden " +
     "oder mit einem anderen Kanal binden, um die Abonnements zu aktualisieren."
-  override val addingChannel = s"Bitte den Namen Ihres Kanals eingeben. Stellen Sie sich sicher, dass $botName ist bereits als Administrator hinzugefügt " +
-    "und dass Sie diesen Kanal bereits erstellt haben."
+  override val addingChannel = s"Bitte den Namen Ihres Kanals eingeben. Stellen Sie sich sicher, dass Sie diesen Kanal bereits erstellt und " +
+    "der $botName als Administrator hinzugefügt haben ."
   override def channelNotFound(channelName: String) =
     s"Der Kanal '${channelName}' ist leider nicht gefunden"
   override val notCreator = "Nur der Ersteller des Kanals kann den Kanal mit dem Chat verbinden."
