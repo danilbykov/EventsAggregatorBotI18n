@@ -230,6 +230,8 @@ trait PortugueseMessages extends AbstractMessages with BaseMessages {
     "botão 'Excluir'."
 
   override val language = "Idioma"
+  override val chooseLanguageBtn =
+    "Escolha o idioma"
   override def chooseLanguage(channelName: Option[String]) =
     header(channelName) + "Escolha o idioma:"
 }

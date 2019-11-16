@@ -230,6 +230,8 @@ trait SpanishMessages extends AbstractMessages with BaseMessages {
     "el botón de 'Eliminar'."
 
   override val language = "Idioma"
+  override val chooseLanguageBtn =
+    "Elige el idioma"
   override def chooseLanguage(channelName: Option[String]) =
     header(channelName) + "Elige el idioma:"
 }

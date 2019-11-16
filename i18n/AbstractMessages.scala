@@ -117,5 +117,6 @@ trait AbstractMessages {
   val monitoringPaused: String
 
   val language: String
+  val chooseLanguageBtn: String
   def chooseLanguage(channelName: Option[String]): String
 }

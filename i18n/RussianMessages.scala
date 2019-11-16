@@ -228,6 +228,8 @@ object RussianMessages extends EnglishMessages {
     " удалить подписки, используя кнопку 'Удалить'."
 
   override val language = "Язык"
+  override val chooseLanguageBtn =
+    "Выберите язык"
   override def chooseLanguage(channelName: Option[String]) =
     header(channelName) + "Выберите язык:"
 }

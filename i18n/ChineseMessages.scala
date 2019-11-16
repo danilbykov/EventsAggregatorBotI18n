@@ -223,6 +223,8 @@ object ChineseMessages extends EnglishMessages {
     "你所有的订阅已被暂停因为你已经离线太久." +
     "你可以单击'恢复'来恢复它们或者单击‘删除’来删除它们 " 
   override val language = "语言"
+  override val chooseLanguageBtn =
+    "选择语言"
   override def chooseLanguage(channelName: Option[String]) =
     header(channelName) + "选择语言:"
 }

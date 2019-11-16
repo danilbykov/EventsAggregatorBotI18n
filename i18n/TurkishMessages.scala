@@ -230,6 +230,8 @@ object TurkishMessages extends EnglishMessages {
     "aboneliklerizi silebilirsiniz."
 
   override val language = "Dil"
+  override val chooseLanguageBtn =
+    "Dilinizi Seçin"
   override def chooseLanguage(channelName: Option[String]) =
     header(channelName) + "Dilinizi Seçin:"
 }

@@ -227,6 +227,8 @@ trait EnglishMessages extends AbstractMessages with BaseMessages {
     "button 'Delete'."
 
   override val language = "Language"
+  override val chooseLanguageBtn =
+    "Choose language"
   override def chooseLanguage(channelName: Option[String]) =
     header(channelName) + "Choose language:"
 }
