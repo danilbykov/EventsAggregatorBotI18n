@@ -134,10 +134,17 @@ object TurkishMessages extends EnglishMessages {
       |1. Resmi Reddit yayın önizlemesine bir bağlantı ekler. Bu, varsayılan olarak kullanılır.
       |2. Resmi Reddit yayın önizlemesi ile ham bağlantı. Ham bağlantılar "çirkin" görünür, ancak Telegram istemcisi tıkladığınızda onay istemiyor. Yani bu tek bir tıklamayla tasarruf sağlar.
       |3. Anlık Görünüm butonu eklenmiş bağlantı. Anlık Görünümlerin bazı Telegram istemcileri (örneğin, tarayıcıda) tarafından desteklenmediğini ve gönderinin +18 topluluk için kısıtlanması durumunda Anında Görünüm'ün çalışmadığını lütfen unutmayın.""".stripMargin
+  override def rssTemplatesOverview(channelName: Option[String]) =
+    header(channelName) + """There are three available templates:
+      |1. Message consists of Feed Title, Post Title and Post Description."
+      |2. Message consists of Feed Title and Post Title.
+      |3. Message consists of only Post Title""".stripMargin
   override def youtubeTemplatesOverview(channelName: Option[String]) =
     header(channelName) + """İki adet şablon mevcuttur:
       |1. Resmi YouTube yayın önizlemesine bir bağlantı ekler. Bu, varsayılan olarak kullanılır.
-      |2. Resmi YouTube yayını önizlemeli bağlantı. Ham bağlantılar "çirkin" görünür, ancak Telegram istemcisi tıkladığınızda onay istemiyor. Yani bu tek bir tıklamayla tasarruf sağlar.""".stripMargin
+      |2. Resmi YouTube yayını önizlemeli bağlantı. Ham bağlantılar "çirkin" görünür, ancak Telegram istemcisi tıkladığınızda onay istemiyor. Yani bu tek bir tıklamayla tasarruf sağlar.
+      |3. Messages consists of Post Title and decorated link with official YouTube post preview.
+      |4. Messages consists of Post Title, Post Description and decorated link with official YouTube post preview.""".stripMargin
 
   override def retweetedByWithLink(url: String, author: String): String =
     s"""<a href="$url">Retweetlendi</a> by <b>$author</b>"""

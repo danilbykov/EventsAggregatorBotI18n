@@ -133,10 +133,17 @@ object RussianMessages extends EnglishMessages {
       |1. Ссылка с официальным превью для Reddit. Используется по умолчанию.
       |2. "Сырая" ссылка с официальным превью для Reddit. "Сырые" ссылки могут содержать различные спецсимволы, но Telegram клиент не спрашивает подтверждение, когда вы нажимаете на нее. Это позволяет сэкономить один клик.
       |3. Ссылка с кнопкой Instant View (если доступно). Заметьте, что Instant View не поддерживается всеми Telegram клиентами (например, в браузерах) и Instant View не работают, если пост имеет 18+ ограничение.""".stripMargin
+  override def rssTemplatesOverview(channelName: Option[String]) =
+    header(channelName) + """There are three available templates:
+      |1. Message consists of Feed Title, Post Title and Post Description."
+      |2. Message consists of Feed Title and Post Title.
+      |3. Message consists of only Post Title""".stripMargin
   override def youtubeTemplatesOverview(channelName: Option[String]) =
     header(channelName) + """Доступно два шаблона:
       |1. Ссылка с официальным превью для YouTube. Используется по умолчанию.
-      |2. "Сырая" ссылка с официальным превью для YouTube. "Сырые" ссылки могут содержать различные спецсимволы, но Telegram клиент не спрашивает подтверждение, когда вы нажимаете на нее. Это позволяет сэкономить один клик""".stripMargin
+      |2. "Сырая" ссылка с официальным превью для YouTube. "Сырые" ссылки могут содержать различные спецсимволы, но Telegram клиент не спрашивает подтверждение, когда вы нажимаете на нее. Это позволяет сэкономить один клик.
+      |3. Messages consists of Post Title and decorated link with official YouTube post preview.
+      |4. Messages consists of Post Title, Post Description and decorated link with official YouTube post preview.""".stripMargin
 
   override def retweetedByWithLink(url: String, author: String): String =
     s"""<a href="$url">Ретвитнуто</a> <b>$author</b>"""

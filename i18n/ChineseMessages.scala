@@ -131,10 +131,17 @@ object ChineseMessages extends EnglishMessages {
       |1. 带有官方Reddit帖子预览的链接。默认模板
       |2. 带有官方Reddit帖子预览的行链接。尽管行链接看起来很丑，但是单击它可直接跳转到Reddit客户端 ，所以方便了一手^_^
       |3. 可以使用即时预览。注意有些Telegram客户端并不支持 (例如, 网页端)，并且如果帖子是18+限制级即时预览不会工作""".stripMargin
+  override def rssTemplatesOverview(channelName: Option[String]) =
+    header(channelName) + """There are three available templates:
+      |1. Message consists of Feed Title, Post Title and Post Description."
+      |2. Message consists of Feed Title and Post Title.
+      |3. Message consists of only Post Title""".stripMargin
   override def youtubeTemplatesOverview(channelName: Option[String]) =
     header(channelName) + """有两个可用模板:
       |1. 带有官方Youube视频预览的链接。默认模板
-      |2. 带有官方Youtube视频预览的行链接。尽管行链接看起来很丑，但是单击它可直接跳转到Youtube客户端 ，所以方便了一手^_^""".stripMargin
+      |2. 带有官方Youtube视频预览的行链接。尽管行链接看起来很丑，但是单击它可直接跳转到Youtube客户端 ，所以方便了一手^_^
+      |3. Messages consists of Post Title and decorated link with official YouTube post preview.
+      |4. Messages consists of Post Title, Post Description and decorated link with official YouTube post preview.""".stripMargin
 
   override def retweetedByWithLink(url: String, author: String): String =
     s"""<a href="$url">Retweeted</a> by <b>$author</b>"""

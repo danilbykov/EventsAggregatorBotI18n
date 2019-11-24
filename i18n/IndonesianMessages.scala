@@ -131,10 +131,17 @@ object IndonesianMessages extends EnglishMessages {
       |1. mendekorasi link dengan pratinjau postingan reddit resmi. Ini digunakan secara default.
       |2. Link mentah dengan pratinjau postingan reddit resmi. link mentah terlihat "jelek" tapi Telegram client tidak meminta konfirmasi ketika Anda klik di linknya. Jadi ini menghemat satu kali klik.
       |3. Mendekorasi link dengan tombol 'instant view'. Harap dicatat Instant Views tidak didukung di beberapa Telegram clients (misalnya, di browser) dan Instant View tidak bekerja jika postingan diblokir untuk komunitas 18+ .""".stripMargin
+  override def rssTemplatesOverview(channelName: Option[String]) =
+    header(channelName) + """There are three available templates:
+      |1. Message consists of Feed Title, Post Title and Post Description."
+      |2. Message consists of Feed Title and Post Title.
+      |3. Message consists of only Post Title""".stripMargin
   override def youtubeTemplatesOverview(channelName: Option[String]) =
     header(channelName) + """Terdapat 2 templates yang tersedia:
       |1. mendekorasi link dengan pratinjau postingan YouTube resmi. Ini digunakan secara default.
-      |2. Link mentah dengan pratinjau postingan Youtube resmi. link mentah terlihat "jelek" tapi Telegram client tidak meminta konfirmasi ketika Anda klik di linknya. Jadi ini menghemat satu kali klik.""".stripMargin
+      |2. Link mentah dengan pratinjau postingan Youtube resmi. link mentah terlihat "jelek" tapi Telegram client tidak meminta konfirmasi ketika Anda klik di linknya. Jadi ini menghemat satu kali klik.
+      |3. Messages consists of Post Title and decorated link with official YouTube post preview.
+      |4. Messages consists of Post Title, Post Description and decorated link with official YouTube post preview.""".stripMargin
 
   override def retweetedByWithLink(url: String, author: String): String =
     s"""<a href="$url">di tweet ulang</a> oleh <b>$author</b>"""

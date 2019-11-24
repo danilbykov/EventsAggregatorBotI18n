@@ -66,6 +66,7 @@ trait AbstractMessages {
   def twitterTemplatesOverview(channelName: Option[String]): String
   def instagramTemplatesOverview(channelName: Option[String]): String
   def redditTemplatesOverview(channelName: Option[String]): String
+  def rssTemplatesOverview(channelName: Option[String]): String
   def youtubeTemplatesOverview(channelName: Option[String]): String
 
   def retweetedByWithLink(url: String, author: String): String

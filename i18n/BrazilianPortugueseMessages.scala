@@ -3,7 +3,7 @@ package io.events.aggregator.telegram.i18n
 /**
  * Created by @EliasJuunior
  */
-trait PortugueseMessages extends AbstractMessages with BaseMessages {
+object PortugueseMessages extends EnglishMessages {
 
   override val noActiveSubscriptions =
     "Nenhuma inscrição ativa. Use o comando <pre>/add</pre> para adicionar inscrições"
@@ -134,10 +134,17 @@ trait PortugueseMessages extends AbstractMessages with BaseMessages {
       |1. Link decorado com pré-visualização oficial do Reddit. Isto é usado por padrão.
       |2. Link bruto com pré-visualização oficial do Reddit. Os links brutos parecem "feios", mas o Telegram não pede confirmação quando você clica. Então isto economiza um clique.
       |3. Link decorado com botão de Visualização Instantânea. Observe que a Visualização Instantânea não é suportada por alguns clientes do Telegram (por exemplo, no navegador) e também não funciona se a postagem for restrito para 18+.""".stripMargin
+  override def rssTemplatesOverview(channelName: Option[String]) =
+    header(channelName) + """There are three available templates:
+      |1. Message consists of Feed Title, Post Title and Post Description."
+      |2. Message consists of Feed Title and Post Title.
+      |3. Message consists of only Post Title""".stripMargin
   override def youtubeTemplatesOverview(channelName: Option[String]) =
     header(channelName) + """Existem dois modelos disponíveis:
       |1. Link decorado com pré-visualização oficial do YouTube. Isto é usado por padrão.
-      |2. Link bruto com pré-visualização oficial do Youtube. Os links brutos parecem "feios", mas o Telegram não pede confirmação quando você clica. Então isto economiza um clique.""".stripMargin
+      |2. Link bruto com pré-visualização oficial do Youtube. Os links brutos parecem "feios", mas o Telegram não pede confirmação quando você clica. Então isto economiza um clique.
+      |3. Messages consists of Post Title and decorated link with official YouTube post preview.
+      |4. Messages consists of Post Title, Post Description and decorated link with official YouTube post preview.""".stripMargin
 
   override def retweetedByWithLink(url: String, author: String): String =
     s"""<a href="$url">Retweetado</a> por <b>$author</b>"""
@@ -235,5 +242,3 @@ trait PortugueseMessages extends AbstractMessages with BaseMessages {
   override def chooseLanguage(channelName: Option[String]) =
     header(channelName) + "Escolha o idioma:"
 }
-
-object PortugueseMessages extends PortugueseMessages

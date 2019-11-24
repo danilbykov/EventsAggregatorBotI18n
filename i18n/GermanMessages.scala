@@ -134,10 +134,17 @@ object GermanMessages extends EnglishMessages {
       |1. Dekorierter Link mit offizieller Reddit-Post-Vorschau. Dies wird standardmäßig verwendet..
       |2. Roher Link mit offizieller Vorschau des Reddit-Posts. Rohe Links sehen "hässlich" aus, aber der Telegramm-Client fragt nach einer Bestätigung nicht, wenn Sie darauf klicken. Das spart also einen Klick..
       |3. Verzierter Link mit der Schaltfläche "Sofortansicht". Bitte beachten Sie, dass Instant Views von einigen Telegramm-Clients (z. B. im Browser) nicht unterstützt werden und Instant View funktioniert nicht, wenn der Beitrag auf die Community ab 18 beschränkt ist.""".stripMargin
+  override def rssTemplatesOverview(channelName: Option[String]) =
+    header(channelName) + """There are three available templates:
+      |1. Message consists of Feed Title, Post Title and Post Description."
+      |2. Message consists of Feed Title and Post Title.
+      |3. Message consists of only Post Title""".stripMargin
   override def youtubeTemplatesOverview(channelName: Option[String]) =
     header(channelName) + """There are two available templates:
       |1. Dekorierter Link mit offizieller Youtube-Post-Vorschau. Dies wird standardmäßig verwendet.
-      |2. Roher Link mit offizieller Vorschau des Youtube-Posts. Rohe Links sehen "hässlich" aus, aber der Telegramm-Client fragt nach einer Bestätigung nicht, wenn Sie darauf klicken. Das spart also einen Klick.""".stripMargin
+      |2. Roher Link mit offizieller Vorschau des Youtube-Posts. Rohe Links sehen "hässlich" aus, aber der Telegramm-Client fragt nach einer Bestätigung nicht, wenn Sie darauf klicken. Das spart also einen Klick.
+      |3. Messages consists of Post Title and decorated link with official YouTube post preview.
+      |4. Messages consists of Post Title, Post Description and decorated link with official YouTube post preview.""".stripMargin
 
   override def retweetedByWithLink(url: String, author: String): String =
     s"""<a href="$url">Retweetet</a> by <b>$author</b>"""

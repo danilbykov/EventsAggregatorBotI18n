@@ -131,10 +131,17 @@ trait EnglishMessages extends AbstractMessages with BaseMessages {
       |1. Decorated link with official Reddit post preview. This is used by default.
       |2. Raw link with official Reddit post preview. Raw links look "ugly" but Telegram client doesn't ask confirmation when you click on it. So this saves one click.
       |3. Decorated link with Instant View button. Please note that Instant Views are not supported by some Telegram clients (for example, in browser) and Instant View doesn't work if post is restricted for 18+ community.""".stripMargin
+  override def rssTemplatesOverview(channelName: Option[String]) =
+    header(channelName) + """There are three available templates:
+      |1. Message consists of Feed Title, Post Title and Post Description."
+      |2. Message consists of Feed Title and Post Title.
+      |3. Message consists of only Post Title""".stripMargin
   override def youtubeTemplatesOverview(channelName: Option[String]) =
-    header(channelName) + """There are two available templates:
+    header(channelName) + """There are four available templates:
       |1. Decorated link with official YouTube post preview. This is used by default.
-      |2. Raw link with official YouTube post preview. Raw links look "ugly" but Telegram client doesn't ask confirmation when you click on it. So this saves one click.""".stripMargin
+      |2. Raw link with official YouTube post preview. Raw links look "ugly" but Telegram client doesn't ask confirmation when you click on it. So this saves one click.
+      |3. Messages consists of Post Title and decorated link with official YouTube post preview.
+      |4. Messages consists of Post Title, Post Description and decorated link with official YouTube post preview.""".stripMargin
 
   override def retweetedByWithLink(url: String, author: String): String =
     s"""<a href="$url">Retweeted</a> by <b>$author</b>"""
